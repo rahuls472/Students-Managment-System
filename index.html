@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Shraddha!</title>
+<style>
+  :root{
+    --pink-1:#ffd6e8;
+    --pink-2:#ffb8d9;
+    --pink-3:#ff8fc0;
+    --pink-deep:#b5175a;
+    --cream:#fff6f9;
+    --gold:#ffd166;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{
+    margin:0;
+    padding:0;
+    height:100%;
+    font-family:'Segoe UI', system-ui, sans-serif;
+    overflow:hidden;
+  }
+
+  body{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:radial-gradient(circle at 50% 0%, var(--pink-1), var(--pink-2) 55%, var(--pink-3) 100%);
+    position:relative;
+  }
+
+  .phone{
+    position:relative;
+    width:420px;
+    max-width:100vw;
+    height:100vh;
+    max-height:900px;
+    background:linear-gradient(180deg, #ffe0ee 0%, #ffc7de 45%, #ff9dc3 100%);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    box-shadow:0 20px 60px rgba(150,20,80,0.35);
+    border-radius:0;
+  }
+
+  @media (min-width:480px){
+    .phone{
+      border-radius:36px;
+      height:880px;
+    }
+  }
+
+  /* ---------- floating ambient decorations ---------- */
+  .float-deco{
+    position:absolute;
+    pointer-events:none;
+    opacity:0.85;
+    animation: drift 6s ease-in-out infinite;
+    filter:drop-shadow(0 2px 2px rgba(0,0,0,0.08));
+    z-index:1;
+  }
+  @keyframes drift{
+    0%,100%{ transform:translateY(0) rotate(0deg); }
+    50%{ transform:translateY(-18px) rotate(8deg); }
+  }
+  @keyframes twinkle{
+    0%,100%{ opacity:0.3; transform:scale(0.8) rotate(0deg); }
+    50%{ opacity:1; transform:scale(1.15) rotate(20deg); }
+  }
+
+  /* ---------- bunting ---------- */
+  .bunting{
+    position:absolute;
+    top:38px;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    z-index:2;
+  }
+  .bunting svg{ width:88%; }
+
+  /* ---------- scene: bear + panda + cake ---------- */
+  .scene{
+    position:relative;
+    margin-top:96px;
+    width:320px;
+    height:300px;
+    z-index:3;
+    animation:scene-in 1s cubic-bezier(.34,1.56,.64,1) both;
+  }
+  @keyframes scene-in{
+    0%{ opacity:0; transform:translateY(40px) scale(0.85); }
+    100%{ opacity:1; transform:translateY(0) scale(1); }
+  }
+
+  .bear{
+    position:absolute;
+    left:0;
+    bottom:10px;
+    width:150px;
+    animation: sway 3.2s ease-in-out infinite;
+    transform-origin:bottom center;
+  }
+  .panda{
+    position:absolute;
+    right:-6px;
+    bottom:14px;
+    width:150px;
+    animation: sway 3.2s ease-in-out infinite 0.4s;
+    transform-origin:bottom center;
+  }
+  @keyframes sway{
+    0%,100%{ transform:rotate(-2deg); }
+    50%{ transform:rotate(2deg); }
+  }
+
+  .cake{
+    position:absolute;
+    left:50%;
+    bottom:0;
+    transform:translateX(-50%);
+    width:170px;
+    z-index:4;
+    animation: cake-pop 1s cubic-bezier(.34,1.56,.64,1) 0.3s both;
+  }
+  @keyframes cake-pop{
+    0%{ opacity:0; transform:translateX(-50%) scale(0.6); }
+    100%{ opacity:1; transform:translateX(-50%) scale(1); }
+  }
+
+  .flame{
+    animation: flicker 0.6s ease-in-out infinite alternate;
+    transform-origin:center bottom;
+  }
+  @keyframes flicker{
+    0%{ transform:scale(1) rotate(-3deg); opacity:1; }
+    100%{ transform:scale(1.15) rotate(3deg); opacity:0.85; }
+  }
+
+  .sparkle-cake{
+    animation: twinkle 1.4s ease-in-out infinite;
+  }
+
+  /* ---------- text ---------- */
+  .msg{
+    position:relative;
+    z-index:3;
+    text-align:center;
+    margin-top:18px;
+    color:var(--pink-deep);
+    font-family:'Brush Script MT', cursive;
+  }
+  .msg h1{
+    font-size:40px;
+    line-height:1.15;
+    margin:0;
+    font-weight:400;
+    font-family: 'Segoe Script', 'Brush Script MT', cursive;
+    text-shadow:0 2px 0 rgba(255,255,255,0.5);
+    animation: text-reveal 0.9s ease 0.5s both;
+  }
+  @keyframes text-reveal{
+    0%{ opacity:0; transform:translateY(14px); }
+    100%{ opacity:1; transform:translateY(0); }
+  }
+
+  .date-badge{
+    margin-top:14px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:#fff;
+    padding:8px 18px;
+    border-radius:30px;
+    color:var(--pink-deep);
+    font-weight:600;
+    font-size:14px;
+    box-shadow:0 4px 14px rgba(180,20,90,0.18);
+    animation: badge-in 0.8s ease 0.8s both;
+  }
+  @keyframes badge-in{
+    0%{ opacity:0; transform:translateY(10px) scale(0.9); }
+    100%{ opacity:1; transform:translateY(0) scale(1); }
+  }
+
+  .question{
+    margin-top:26px;
+    font-size:19px;
+    font-style:italic;
+    color:var(--pink-deep);
+    font-family: Georgia, 'Times New Roman', serif;
+    animation: text-reveal 0.9s ease 1s both;
+  }
+
+  /* ---------- buttons ---------- */
+  .btn-zone{
+    position:relative;
+    width:100%;
+    flex:1;
+    z-index:5;
+  }
+
+  .yes-btn{
+    position:absolute;
+    left:50%;
+    top:38px;
+    transform:translateX(-50%);
+    background:linear-gradient(180deg,#ff6fa5,#e8195f);
+    color:#fff;
+    border:none;
+    padding:16px 56px;
+    font-size:19px;
+    font-weight:700;
+    border-radius:40px;
+    cursor:pointer;
+    box-shadow:0 10px 24px rgba(210,20,90,0.45);
+    animation: pulse-yes 1.8s ease-in-out infinite, text-reveal 0.9s ease 1.2s both;
+    letter-spacing:0.3px;
+  }
+  @keyframes pulse-yes{
+    0%,100%{ transform:translateX(-50%) scale(1); }
+    50%{ transform:translateX(-50%) scale(1.06); }
+  }
+  .yes-btn:active{ transform:translateX(-50%) scale(0.94); }
+
+  .no-btn{
+    position:absolute;
+    background:#fff;
+    color:var(--pink-3);
+    border:2px solid var(--pink-3);
+    padding:16px 56px;
+    font-size:19px;
+    font-weight:700;
+    border-radius:40px;
+    cursor:pointer;
+    transition:left 0.28s cubic-bezier(.22,1,.36,1),
+               top 0.28s cubic-bezier(.22,1,.36,1),
+               transform 0.15s ease;
+    box-shadow:0 6px 16px rgba(200,20,90,0.18);
+    animation:text-reveal 0.9s ease 1.3s both;
+    z-index:6;
+    user-select:none;
+    touch-action:none;
+    -webkit-tap-highlight-color:transparent;
+  }
+
+  /* ---------- footer icons ---------- */
+  .footer-icons{
+    position:absolute;
+    bottom:16px;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    padding:0 24px;
+    z-index:3;
+  }
+  .footer-icons div{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.55);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:16px;
+  }
+
+  /* ---------- confetti (yes celebration) ---------- */
+  .confetti-piece{
+    position:absolute;
+    top:-20px;
+    width:8px;
+    height:14px;
+    opacity:0.95;
+    animation: fall linear forwards;
+    z-index:10;
+  }
+  @keyframes fall{
+    to{ transform:translateY(920px) rotate(600deg); opacity:0.3; }
+  }
+
+  .celebrate-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255, 190, 220, 0.0);
+    pointer-events:none;
+    z-index:20;
+  }
+  .celebrate-text{
+    background:#fff;
+    color:var(--pink-deep);
+    padding:22px 30px;
+    border-radius:20px;
+    font-size:22px;
+    font-weight:700;
+    text-align:center;
+    box-shadow:0 14px 40px rgba(150,20,80,0.35);
+    opacity:0;
+    transform:scale(0.7);
+    animation: celebrate-in 0.6s cubic-bezier(.34,1.56,.64,1) forwards;
+  }
+  @keyframes celebrate-in{
+    to{ opacity:1; transform:scale(1); }
+  }
+</style>
+</head>
+<body>
+
+<div class="phone" id="phone">
+
+  <!-- floating ambient decorations -->
+  <svg class="float-deco" style="top:6%; left:8%; width:26px; animation-duration:5.5s;" viewBox="0 0 24 24" fill="#7fd8e8"><path d="M12 2c1 4-3 5-3 8a3 3 0 006 0c0-3-4-4-3-8z"/></svg>
+  <svg class="float-deco" style="top:8%; right:10%; width:22px; animation-duration:4.8s;" viewBox="0 0 24 24" fill="#ffe07a"><path d="M12 2l1.5 6.5L20 10l-6.5 1.5L12 18l-1.5-6.5L4 10l6.5-1.5z"/></svg>
+  <svg class="float-deco" style="top:16%; left:4%; width:20px; animation-duration:6.2s;" viewBox="0 0 24 24" fill="#ff8fb8"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.9 3 5 7 5c2 0 3.5 1.2 5 3 1.5-1.8 3-3 5-3 4 0 6.5 3.9 4.5 7.5C19 16.65 12 21 12 21z"/></svg>
+  <svg class="float-deco" style="top:22%; right:6%; width:24px; animation-duration:5.1s;" viewBox="0 0 24 24" fill="#8fe89b"><path d="M12 2c1 4-3 5-3 8a3 3 0 006 0c0-3-4-4-3-8z"/></svg>
+  <svg class="float-deco" style="top:48%; left:5%; width:18px; animation-duration:4.4s;" viewBox="0 0 24 24" fill="#ff8fb8"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.9 3 5 7 5c2 0 3.5 1.2 5 3 1.5-1.8 3-3 5-3 4 0 6.5 3.9 4.5 7.5C19 16.65 12 21 12 21z"/></svg>
+  <svg class="float-deco" style="top:60%; right:6%; width:20px; animation-duration:5.6s;" viewBox="0 0 24 24" fill="#ffe07a"><path d="M12 2l1.5 6.5L20 10l-6.5 1.5L12 18l-1.5-6.5L4 10l6.5-1.5z"/></svg>
+  <svg class="float-deco" style="top:70%; left:8%; width:16px; animation-duration:4.9s;" viewBox="0 0 24 24" fill="#8fe89b"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.9 3 5 7 5c2 0 3.5 1.2 5 3 1.5-1.8 3-3 5-3 4 0 6.5 3.9 4.5 7.5C19 16.65 12 21 12 21z"/></svg>
+  <svg class="float-deco" style="top:4%; left:44%; width:14px; animation-duration:3.6s;" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l1.5 6.5L20 10l-6.5 1.5L12 18l-1.5-6.5L4 10l6.5-1.5z"/></svg>
+
+  <!-- bunting -->
+  <div class="bunting">
+    <svg viewBox="0 0 340 40" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5 5 Q170 35 335 5" stroke="#d8547a" stroke-width="2" fill="none"/>
+      <g>
+        <polygon points="20,8 35,8 27,26" fill="#ff8fb8"/>
+        <polygon points="55,10 70,10 62,28" fill="#7fd8e8"/>
+        <polygon points="90,11 105,11 97,29" fill="#ffe07a"/>
+        <polygon points="125,12 140,12 132,30" fill="#8fe89b"/>
+        <polygon points="165,12 180,12 172,30" fill="#ff8fb8"/>
+        <polygon points="200,12 215,12 207,30" fill="#c8a4ff"/>
+        <polygon points="235,11 250,11 242,29" fill="#7fd8e8"/>
+        <polygon points="270,10 285,10 277,28" fill="#ffe07a"/>
+        <polygon points="305,8 320,8 312,26" fill="#ff8fb8"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- bear + cake + panda scene -->
+  <div class="scene">
+
+    <!-- BEAR -->
+    <svg class="bear" viewBox="0 0 160 170" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="80" cy="150" rx="46" ry="10" fill="#00000010"/>
+      <circle cx="35" cy="38" r="20" fill="#b98457"/>
+      <circle cx="125" cy="38" r="20" fill="#b98457"/>
+      <circle cx="35" cy="38" r="10" fill="#e8c39e"/>
+      <circle cx="125" cy="38" r="10" fill="#e8c39e"/>
+      <polygon points="80,-10 55,35 105,35" fill="#f4a4c0"/>
+      <circle cx="80" cy="-10" r="6" fill="#ffe07a"/>
+      <ellipse cx="80" cy="80" rx="55" ry="50" fill="#c9976a"/>
+      <ellipse cx="80" cy="95" rx="30" ry="24" fill="#f1d3ac"/>
+      <ellipse cx="62" cy="80" rx="5.5" ry="7" fill="#3a2418"/>
+      <ellipse cx="98" cy="80" rx="5.5" ry="7" fill="#3a2418"/>
+      <circle cx="60" cy="77" r="1.6" fill="#fff"/>
+      <circle cx="96" cy="77" r="1.6" fill="#fff"/>
+      <ellipse cx="48" cy="98" rx="9" ry="6" fill="#f5a9b8" opacity="0.8"/>
+      <ellipse cx="112" cy="98" rx="9" ry="6" fill="#f5a9b8" opacity="0.8"/>
+      <ellipse cx="80" cy="96" rx="7" ry="5" fill="#5a3a24"/>
+      <path d="M80 101 Q80 108 72 108" stroke="#5a3a24" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M80 101 Q80 108 88 108" stroke="#5a3a24" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <ellipse cx="45" cy="150" rx="20" ry="22" fill="#c9976a"/>
+      <ellipse cx="35" cy="145" rx="10" ry="9" fill="#f1d3ac"/>
+    </svg>
+
+    <!-- CAKE -->
+    <svg class="cake" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
+      <rect x="94" y="10" width="10" height="24" rx="3" fill="#7fd8e8"/>
+      <g class="flame">
+        <ellipse cx="99" cy="4" rx="6" ry="10" fill="#ffb54c"/>
+        <ellipse cx="99" cy="6" rx="3" ry="5" fill="#fff2b0"/>
+      </g>
+      <rect x="55" y="36" width="90" height="42" rx="10" fill="#ffd7e6"/>
+      <rect x="55" y="36" width="90" height="14" rx="7" fill="#ff9fc4"/>
+      <text x="100" y="66" font-family="Segoe UI, sans-serif" font-size="17" font-weight="800" fill="#c8195f" text-anchor="middle">HAPPY</text>
+      <rect x="25" y="80" width="150" height="56" rx="14" fill="#ffc2dc"/>
+      <rect x="25" y="80" width="150" height="16" rx="8" fill="#ff8fb8"/>
+      <text x="100" y="118" font-family="Segoe UI, sans-serif" font-size="19" font-weight="800" fill="#a30e4f" text-anchor="middle">BIRTHDAY</text>
+      <ellipse cx="100" cy="140" rx="92" ry="10" fill="#fff" opacity="0.7"/>
+      <circle cx="45" cy="108" r="3" fill="#ffe07a"/>
+      <circle cx="160" cy="108" r="3" fill="#8fe89b"/>
+      <circle cx="38" cy="60" r="2.5" fill="#7fd8e8"/>
+      <circle cx="150" cy="60" r="2.5" fill="#c8a4ff"/>
+      <path class="sparkle-cake" d="M170 30 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z" fill="#fff2b0"/>
+      <path class="sparkle-cake" style="animation-delay:0.6s" d="M20 20 l2.5 6 6 2.5 -6 2.5 -2.5 6 -2.5 -6 -6 -2.5 6 -2.5z" fill="#fff2b0"/>
+    </svg>
+
+    <!-- PANDA -->
+    <svg class="panda" viewBox="0 0 160 170" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="80" cy="150" rx="46" ry="10" fill="#00000010"/>
+      <circle cx="35" cy="38" r="20" fill="#2b2b2b"/>
+      <circle cx="125" cy="38" r="20" fill="#2b2b2b"/>
+      <polygon points="80,-10 55,35 105,35" fill="#7fd8e8"/>
+      <circle cx="80" cy="-10" r="6" fill="#fff"/>
+      <ellipse cx="80" cy="80" rx="55" ry="50" fill="#ffffff"/>
+      <ellipse cx="58" cy="82" rx="16" ry="20" fill="#2b2b2b"/>
+      <ellipse cx="102" cy="82" rx="16" ry="20" fill="#2b2b2b"/>
+      <circle cx="58" cy="84" r="5.5" fill="#fff"/>
+      <circle cx="102" cy="84" r="5.5" fill="#fff"/>
+      <circle cx="59.5" cy="85.5" r="2.6" fill="#111"/>
+      <circle cx="103.5" cy="85.5" r="2.6" fill="#111"/>
+      <ellipse cx="48" cy="100" rx="8" ry="5.5" fill="#f5a9b8" opacity="0.8"/>
+      <ellipse cx="112" cy="100" rx="8" ry="5.5" fill="#f5a9b8" opacity="0.8"/>
+      <ellipse cx="80" cy="98" rx="6" ry="4.5" fill="#2b2b2b"/>
+      <path d="M80 102 Q80 109 72 109" stroke="#2b2b2b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M80 102 Q80 109 88 109" stroke="#2b2b2b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <ellipse cx="115" cy="150" rx="20" ry="22" fill="#2b2b2b"/>
+      <ellipse cx="122" cy="142" rx="10" ry="9" fill="#fff"/>
+    </svg>
+
+  </div>
+
+  <!-- message -->
+  <div class="msg">
+    <h1>Happy Birthday,<br>Shraddha!</h1>
+    <div class="date-badge">🎂 2 October</div>
+    <div class="question">Are you excited for what's next?</div>
+  </div>
+
+  <!-- buttons -->
+  <div class="btn-zone">
+    <button class="yes-btn" id="yesBtn">Yes</button>
+    <button class="no-btn" id="noBtn">No</button>
+  </div>
+
+
+  <!-- celebration overlay -->
+  <div class="celebrate-overlay" id="celebrate"></div>
+
+</div>
+
+<script>
+  const noBtn = document.getElementById('noBtn');
+  const yesBtn = document.getElementById('yesBtn');
+  const zone = document.querySelector('.btn-zone');
+  const phone = document.getElementById('phone');
+
+  let lastMove = 0;
+  const MOVE_COOLDOWN = 300;
+
+  // All escape positions are on the LEFT side of the Yes button.
+  // The button keeps the exact same size as the Yes button.
+  const escapePositions = [
+    { x: 22,  y: 18 },
+    { x: 115, y: 82 },
+    { x: 22,  y: 150 },
+    { x: 135, y: 215 }
+  ];
+
+  let escapeIndex = 0;
+
+  function moveNoButton(){
+    const now = performance.now();
+    if(now - lastMove < MOVE_COOLDOWN) return;
+    lastMove = now;
+
+    const zoneRect = zone.getBoundingClientRect();
+    const btnW = noBtn.offsetWidth;
+    const btnH = noBtn.offsetHeight;
+    const padding = 10;
+
+    const maxX = Math.max(padding, zoneRect.width - btnW - padding);
+    const maxY = Math.max(padding, zoneRect.height - btnH - padding);
+
+    const position = escapePositions[escapeIndex];
+
+    noBtn.style.left = Math.min(position.x, maxX) + 'px';
+    noBtn.style.top = Math.min(position.y, maxY) + 'px';
+
+    escapeIndex = (escapeIndex + 1) % escapePositions.length;
+  }
+
+  // Run away before the cursor can reach the No button.
+  document.addEventListener('mousemove', function(e){
+    const r = noBtn.getBoundingClientRect();
+
+    const closestX = Math.max(r.left, Math.min(e.clientX, r.right));
+    const closestY = Math.max(r.top, Math.min(e.clientY, r.bottom));
+
+    const distance = Math.hypot(
+      e.clientX - closestX,
+      e.clientY - closestY
+    );
+
+    if(distance < 110){
+      moveNoButton();
+    }
+  });
+
+  // Extra protection.
+  noBtn.addEventListener('mouseenter', moveNoButton);
+
+  // Mobile/touch protection.
+  noBtn.addEventListener('pointerdown', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    moveNoButton();
+  });
+
+  noBtn.addEventListener('touchstart', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    moveNoButton();
+  }, {passive:false});
+
+  // No can never be selected.
+  noBtn.addEventListener('click', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    moveNoButton();
+  });
+
+  function spawnConfetti(){
+    const colors = ['#ff8fc0','#ffd166','#7fd8e8','#8fe89b','#c8a4ff','#ff6fa5'];
+    for(let i=0;i<60;i++){
+      const piece = document.createElement('div');
+      piece.className = 'confetti-piece';
+      piece.style.left = Math.random()*100 + '%';
+      piece.style.background = colors[Math.floor(Math.random()*colors.length)];
+      piece.style.animationDuration = (2 + Math.random()*2) + 's';
+      piece.style.animationDelay = (Math.random()*0.5) + 's';
+      piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+      phone.appendChild(piece);
+      setTimeout(()=> piece.remove(), 4500);
+    }
+  }
+
+  yesBtn.addEventListener('click', function(){
+    spawnConfetti();
+    const overlay = document.getElementById('celebrate');
+    overlay.innerHTML = '<div class="celebrate-text">Yay! 🎉<br>Here\'s to an amazing year ahead, Shraddha! 🥳</div>';
+    setTimeout(()=>{ overlay.innerHTML = ''; }, 3200);
+  });
+
+  // Initial position: LEFT of the centered Yes button.
+  window.addEventListener('load', ()=>{
+    noBtn.style.left = '22px';
+    noBtn.style.top = '18px';
+  });
+</script>
+
+</body>
+</html>
